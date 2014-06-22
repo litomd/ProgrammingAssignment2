@@ -35,8 +35,19 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve returns a matrix that is the inverse of x
+## if it has not been already calculated and cached,
+## it calculates the inverse of the matrix assuming it is
+## invertible using the solve() function in R 
+## and caches the result for future use
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+  invM <- x$getInv()
+  if (!is.null(invM)) {
+    message("getting cached inverse")
+    return(invM)
+  }
+  invM <- solve(x$get())
+  x$setInv(invM)
+  invM
 }
