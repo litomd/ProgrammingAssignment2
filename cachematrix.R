@@ -42,6 +42,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ## and caches the result for future use
 
 cacheSolve <- function(x, ...) {
+  if (nrow(x$get()) == 1 && is.na(x$get())) {
+    message("undefined matrix returning null")
+    return(NULL)
+  }
+  if (nrow(x$get()[!complete.cases(x$get()),]) > 0) {
+    message("incomplete matrix returning null")
+    return(NULL)
+  }
   invM <- x$getInv()
   if (!is.null(invM)) {
     message("getting cached inverse")
