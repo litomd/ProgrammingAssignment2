@@ -49,6 +49,9 @@ makeCacheMatrix <- function(x = matrix()) {
 ## cacheSolve(Mat) ## returns Null because matrix is undefined
 ## Mat$set(matrix(nrow=2,ncol=2)) ## set the matrix to a 2x2
 ## cacheSolve(Mat) ## returns Null because matrix is incomplete
+## mm <- matrix(1:6,nrow=2,ncol=3) ## not a square matrix
+## Mat$set(mm) ## set the matrix to non-square matrix
+## cacheSolve(Mat) ## returns Null because matrix is not square
 ## mm <- matrix(nrow=2,ncol=2) ## new matrix with no values
 ## mm[1,1] <- 1
 ## mm[1,2] <- 3
